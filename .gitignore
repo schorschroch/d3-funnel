@@ -3,3 +3,6 @@
 /test/compiled
 package-lock.json
 yarn.lock
+/nbproject/private/
+nbproject/project.properties
+nbproject/project.xml
