@@ -241,9 +241,14 @@ class D3Funnel {
      * @return {{width: Number, height: Number}}
      */
     getContainerDimensions() {
+        const containerNode = select(this.container).node();
+        const containerNodeDimensions = containerNode.getBoundingClientRect();
         const dimensions = {
-            width: parseFloat(select(this.container).style('width')),
-            height: parseFloat(select(this.container).style('height')),
+            width: parseFloat(containerNodeDimensions.width),
+            height: parseFloat(containerNodeDimensions.height),
+            // original
+            // width: parseFloat(select(this.container).style('width')),
+            // height: parseFloat(select(this.container).style('height')),
         };
 
         // Remove container dimensions that resolve to zero
@@ -834,9 +839,8 @@ class D3Funnel {
                         `top: ${top}px`,
                         `border: 1px solid ${block.fill.raw}`,
                         'background: rgb(255,255,255,0.75)',
-                        'padding: 5px 15px',
+                        'padding: 5px 10px',
                         'color: #000',
-                        'font-size: 14px',
                         'font-weight: bold',
                         'text-align: center',
                         'cursor: default',
